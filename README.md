@@ -1,16 +1,9 @@
-# movieapp
+<img src="https://github.com/MohanedZekry/Feshar/blob/master/img/feshar_logo.png" align="left" />
 
-A new Flutter project.
+[![Feshar](https://img.shields.io/badge/Feshar-TvShows-green)](https://github.com/MohanedZekry/Feshar)
+>
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+# Feshar V2 <i> (Flutter Version) </i>
+Mobile application which shows Popular, Now Playing, Top Rated and Upcoming Movies, TvShows and all the details Reviews, Trailer,
+Same goes with the TVShows showing Airing Today, OnAir, Popular, and Top Rated shows. Worked on making clean and beautifull UI and UX by using latest Google Material Designs.
+All the data has been fetched from "(TMDB)".
