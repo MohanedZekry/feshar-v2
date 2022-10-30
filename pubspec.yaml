@@ -15,7 +15,10 @@ dependencies:
 
 
   cupertino_icons: ^1.0.2
+  # Equatable package
   equatable: ^2.0.0
+  # http packages
+  dio: ^4.0.6
 
 dev_dependencies:
   flutter_test:
