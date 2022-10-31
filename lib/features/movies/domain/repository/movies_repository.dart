@@ -1,6 +1,5 @@
 import 'package:dartz/dartz.dart';
 import 'package:movieapp/core/error/failure.dart';
-
 import '../entities/movie.dart';
 
 abstract class MoviesRepository {

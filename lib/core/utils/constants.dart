@@ -1,6 +1,6 @@
 class Constants{
 
-  static const baseURL = 'https://api.themoviedb.org/3';
+  static const baseURL = 'https://api.themoviedb.org/3/';
   static const apiKey = 'a015fe280bcdb2e5660d6170596597eb';
 
   // END POINTS PATH

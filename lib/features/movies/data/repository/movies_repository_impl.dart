@@ -5,7 +5,7 @@ import 'package:movieapp/features/movies/data/data_source/remote/remote_movie_da
 import 'package:movieapp/features/movies/domain/entities/movie.dart';
 import 'package:movieapp/features/movies/domain/repository/movies_repository.dart';
 
-class MoviesRepositoryImpl extends MoviesRepository {
+class MoviesRepositoryImpl implements MoviesRepository {
 
   final RemoteMovieDataSource remoteMovieDataSource;
 

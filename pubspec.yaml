@@ -13,14 +13,15 @@ dependencies:
   flutter:
     sdk: flutter
 
-
   cupertino_icons: ^1.0.2
   # Equatable package
   equatable: ^2.0.0
   # http packages
   dio: ^4.0.6
-  # Functional Programming
+  # Functional programming package
   dartz: ^0.10.1
+  # State Management package
+  flutter_bloc: ^8.1.1
 
 
 dev_dependencies:

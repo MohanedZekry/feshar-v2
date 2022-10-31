@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:movieapp/core/app_theme.dart';
+import 'package:movieapp/features/movies/presentation/screens/movie_screen.dart';
+
+import 'core/utils/dio_helper.dart';
 
 void main() {
+
+  WidgetsFlutterBinding.ensureInitialized();
+  DioHelper.init();
   runApp(const MyApp());
 }
 
@@ -11,12 +17,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Feshar',
       theme: appTheme,
-      home: Scaffold(
-        appBar: AppBar(),
-        body: Column(),
-      ),
+      home: const MovieScreen()
     );
   }
 }
