@@ -5,16 +5,16 @@ import 'package:movieapp/features/movies/domain/entities/movie.dart';
 class MoviesState extends Equatable {
 
   final List<Movie> nowPlayingMovies;
-  final RequestState requestState;
-  final String message;
+  final RequestState nowPlayingState;
+  final String nowPlayingMessage;
 
   const MoviesState({
     this.nowPlayingMovies = const [],
-    this.requestState = RequestState.loading,
-    this.message = ''
+    this.nowPlayingState = RequestState.loading,
+    this.nowPlayingMessage = ''
   });
 
   @override
-  List<Object?> get props => [nowPlayingMovies, requestState, message];
+  List<Object?> get props => [nowPlayingMovies, nowPlayingState, nowPlayingMessage];
 
 }

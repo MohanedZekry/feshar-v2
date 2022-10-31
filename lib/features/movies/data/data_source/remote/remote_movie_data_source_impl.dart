@@ -13,7 +13,8 @@ class RemoteMovieDataSourceImpl implements RemoteMovieDataSource {
         .getData(url: Constants.MOVIE_NOW_PLAYING_EP,
         query: {
           'api_key': Constants.apiKey,
-          'page': '1'
+          'page': 1,
+          'language' : 'en-US'
         }
     );
 
@@ -32,9 +33,11 @@ class RemoteMovieDataSourceImpl implements RemoteMovieDataSource {
         .getData(url: Constants.MOVIE_POPULAR_EP,
         query: {
           'api_key': Constants.apiKey,
-          'page': '1'
+          'page': 1,
+          'language' : 'en-US'
         }
     );
+
     if(response.statusCode == 200){
       return  List<MovieModel>.from((response.data['results'] as List).map((e) =>
           MovieModel.fromJson(e)
@@ -50,7 +53,8 @@ class RemoteMovieDataSourceImpl implements RemoteMovieDataSource {
         .getData(url: Constants.MOVIE_TOP_RATED_EP,
         query: {
           'api_key': Constants.apiKey,
-          'page': '1'
+          'page': 1,
+          'language' : 'en-US'
         }
     );
     if(response.statusCode == 200){
