@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movieapp/core/app_theme.dart';
+import 'package:movieapp/core/services/services_locator.dart';
 import 'package:movieapp/features/movies/presentation/screens/movie_screen.dart';
 
 import 'core/utils/dio_helper.dart';
@@ -7,6 +8,7 @@ import 'core/utils/dio_helper.dart';
 void main() {
 
   WidgetsFlutterBinding.ensureInitialized();
+  ServiceLocator().init();
   DioHelper.init();
   runApp(const MyApp());
 }

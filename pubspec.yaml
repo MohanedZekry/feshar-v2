@@ -22,7 +22,8 @@ dependencies:
   dartz: ^0.10.1
   # State Management package
   flutter_bloc: ^8.1.1
-
+  # Singleton
+  get_it: ^7.2.0
 
 dev_dependencies:
   flutter_test:
