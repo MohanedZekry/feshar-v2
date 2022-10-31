@@ -1,27 +1,12 @@
 import 'package:equatable/equatable.dart';
 
-abstract class Failure extends Equatable{}
+abstract class Failure extends Equatable{
+  final String message;
+  const Failure({required this.message});
+  @override
+  List<Object?> get props => [message];
+}
 
 class ServerFailure extends Failure {
-
-  final int status;
-  final String statusMessage;
-  final bool success;
-
-  ServerFailure({
-    required this.status,
-    required this.statusMessage,
-    required this.success
-  });
-
-  factory ServerFailure.fromJson(Map<String, dynamic> json) =>
-      ServerFailure(
-          status: json['status'],
-          statusMessage: json['statusMessage'],
-          success: json['success']
-      );
-
-  @override
-  List<Object?> get props => [status, statusMessage, success];
-
+  const ServerFailure({required super.message});
 }

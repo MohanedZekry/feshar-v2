@@ -5,6 +5,8 @@ class Constants{
 
   // END POINTS PATH
   /* now_playing?api_key={API_KEY}&page=1 */
-  static const NOW_PLAYING_EP = 'now_playing';
+  static const MOVIE_NOW_PLAYING_EP = 'movie/now_playing';
+  static const MOVIE_POPULAR_EP = 'movie/popular';
+  static const MOVIE_TOP_RATED_EP = 'movie/top_rated';
 
 }

@@ -1,9 +1,10 @@
-import 'package:movieapp/core/error/failure.dart';
+import 'package:movieapp/core/network/error_message_model.dart';
+
 
 class ServerException implements Exception{
 
-  final ServerFailure serverFailure;
+  final ErrorMessageModel errorMessageModel;
 
-  const ServerException({required this.serverFailure});
+  const ServerException({required this.errorMessageModel});
 
 }
