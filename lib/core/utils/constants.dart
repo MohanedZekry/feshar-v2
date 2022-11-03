@@ -1,7 +1,8 @@
 class Constants{
 
   static const baseURL = 'https://api.themoviedb.org/3/';
-  static const apiKey = 'a015fe280bcdb2e5660d6170596597eb';
+  static const baseImageURL = 'https://image.tmdb.org/t/p/w500';
+  static String imageURL(String path) => '$baseImageURL$path';
 
   // END POINTS PATH
   /* now_playing?api_key={API_KEY}&page=1 */

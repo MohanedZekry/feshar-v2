@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:movieapp/core/app_theme.dart';
 import 'package:movieapp/core/services/services_locator.dart';
 import 'package:movieapp/features/movies/presentation/screens/movie_screen.dart';
-
 import 'core/utils/dio_helper.dart';
 
-void main() {
+void main() async{
 
   WidgetsFlutterBinding.ensureInitialized();
   ServiceLocator().init();
   DioHelper.init();
+  await dotenv.load(fileName: ".env");
+
   runApp(const MyApp());
 }
 
@@ -21,7 +23,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Feshar',
       theme: appTheme,
-      home: const MovieScreen()
+      home: const MovieScreen(),
     );
   }
 }

@@ -25,6 +25,7 @@ class MoviesRepositoryImpl implements MoviesRepository {
   Future<Either<Failure ,List<Movie>>>  getPopularMovies() async{
     final result = await remoteMovieDataSource.getPopularMoves();
     try{
+      print(result);
       return Right(result);
     } on ServerException catch(failure) {
       return left(ServerFailure(message: failure.errorMessageModel.statusMessage));

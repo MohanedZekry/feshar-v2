@@ -4,6 +4,7 @@ import 'package:movieapp/core/utils/constants.dart';
 import 'package:movieapp/core/utils/dio_helper.dart';
 import 'package:movieapp/features/movies/data/data_source/remote/remote_movie_data_source.dart';
 import 'package:movieapp/features/movies/data/models/movie_model.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class RemoteMovieDataSourceImpl implements RemoteMovieDataSource {
 
@@ -12,7 +13,7 @@ class RemoteMovieDataSourceImpl implements RemoteMovieDataSource {
     final response = await DioHelper
         .getData(url: Constants.MOVIE_NOW_PLAYING_EP,
         query: {
-          'api_key': Constants.apiKey,
+          'api_key': dotenv.env['API_KEY'],
           'page': 1,
           'language' : 'en-US'
         }
@@ -32,7 +33,7 @@ class RemoteMovieDataSourceImpl implements RemoteMovieDataSource {
     final response = await DioHelper
         .getData(url: Constants.MOVIE_POPULAR_EP,
         query: {
-          'api_key': Constants.apiKey,
+          'api_key': dotenv.env['API_KEY'],
           'page': 1,
           'language' : 'en-US'
         }
@@ -52,7 +53,7 @@ class RemoteMovieDataSourceImpl implements RemoteMovieDataSource {
     final response = await DioHelper
         .getData(url: Constants.MOVIE_TOP_RATED_EP,
         query: {
-          'api_key': Constants.apiKey,
+          'api_key': dotenv.env['API_KEY'],
           'page': 1,
           'language' : 'en-US'
         }
