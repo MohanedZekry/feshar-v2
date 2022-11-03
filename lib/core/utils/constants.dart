@@ -9,5 +9,6 @@ class Constants{
   static const MOVIE_NOW_PLAYING_EP = 'movie/now_playing';
   static const MOVIE_POPULAR_EP = 'movie/popular';
   static const MOVIE_TOP_RATED_EP = 'movie/top_rated';
+  static const MOVIE_DETAILS_EP = 'movie';
 
 }

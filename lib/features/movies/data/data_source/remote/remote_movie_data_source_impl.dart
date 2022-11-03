@@ -3,6 +3,7 @@ import 'package:movieapp/core/network/error_message_model.dart';
 import 'package:movieapp/core/utils/constants.dart';
 import 'package:movieapp/core/utils/dio_helper.dart';
 import 'package:movieapp/features/movies/data/data_source/remote/remote_movie_data_source.dart';
+import 'package:movieapp/features/movies/data/models/movie_details_model.dart';
 import 'package:movieapp/features/movies/data/models/movie_model.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
@@ -84,5 +85,26 @@ class RemoteMovieDataSourceImpl implements RemoteMovieDataSource {
       ErrorMessageModel(success: false, status: 401, statusMessage: e.toString()));
     }
   }
+
+  @override
+  Future<MovieDetailsModel> getMovieDetails(int movieID) async{
+    try {
+      final response = await DioHelper
+          .getData(url: '${Constants.MOVIE_DETAILS_EP}/$movieID',
+          query: {
+            'api_key': dotenv.env['API_KEY'],
+            'language': 'en-US'
+          }
+      );
+      if (response.statusCode == 200) {
+        return MovieDetailsModel.fromJson(response.data);
+      } else {
+        throw ServerException(
+            errorMessageModel: ErrorMessageModel.fromJson(response.data));
+      }
+    }catch(e) {
+      throw  ServerException(errorMessageModel:
+      ErrorMessageModel(success: false, status: 401, statusMessage: e.toString()));
+    }}
 
 }

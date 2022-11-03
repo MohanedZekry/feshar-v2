@@ -23,6 +23,4 @@ class MovieModel extends Movie {
         releaseDate: json['release_date']
     );
 
-
-
 }

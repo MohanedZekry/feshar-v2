@@ -1,3 +1,4 @@
+import 'package:movieapp/features/movies/data/models/movie_details_model.dart';
 import 'package:movieapp/features/movies/data/models/movie_model.dart';
 
 abstract class RemoteMovieDataSource {
@@ -8,4 +9,5 @@ abstract class RemoteMovieDataSource {
 
   Future<List<MovieModel>> getTopRatedMoves();
 
+  Future<MovieDetailsModel> getMovieDetails(int movieId);
 }

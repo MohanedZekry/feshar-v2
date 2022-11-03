@@ -3,6 +3,7 @@ import 'package:movieapp/core/error/exceptions.dart';
 import 'package:movieapp/core/error/failure.dart';
 import 'package:movieapp/features/movies/data/data_source/remote/remote_movie_data_source.dart';
 import 'package:movieapp/features/movies/domain/entities/movie.dart';
+import 'package:movieapp/features/movies/domain/entities/movie_details.dart';
 import 'package:movieapp/features/movies/domain/repository/movies_repository.dart';
 
 class MoviesRepositoryImpl implements MoviesRepository {
@@ -39,6 +40,11 @@ class MoviesRepositoryImpl implements MoviesRepository {
     } on ServerException catch(failure) {
       return left(ServerFailure(message: failure.errorMessageModel.statusMessage));
     }
+  }
+
+  @override
+  Future<Either<Failure, MovieDetails>> getMovieDetails(int movieId) {
+    throw UnimplementedError();
   }
 
 }
