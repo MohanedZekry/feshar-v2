@@ -1,3 +1,4 @@
+import 'package:movieapp/features/movies/data/models/genre_model.dart';
 import 'package:movieapp/features/movies/domain/entities/movie_details.dart';
 
 class MovieDetailsModel extends MovieDetails{
@@ -20,7 +21,7 @@ class MovieDetailsModel extends MovieDetails{
         overview: json['overview'],
         releaseDate: json['release_date'],
         runTime: json['runtime'],
-        genres: json['genres'],
+        genres: List.from(json['genres'].map((e) => GenreModel.fromJson(e))),
         title: json['title'],
         voteAverage: json['vote_average'].toDouble()
     );

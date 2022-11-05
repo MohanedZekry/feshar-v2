@@ -11,6 +11,12 @@ final appTheme = ThemeData(
   colorScheme: const ColorScheme.light(
       primary: primaryColor
   ),
+  bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+    elevation: 0,
+    backgroundColor: bottomNavColor,
+    unselectedItemColor: Colors.grey,
+    selectedItemColor: Colors.white,
+  ),
   progressIndicatorTheme: const ProgressIndicatorThemeData(color: primaryColor),
   floatingActionButtonTheme: const FloatingActionButtonThemeData(
     backgroundColor: primaryColor,
@@ -27,5 +33,10 @@ final appTheme = ThemeData(
         borderSide: const BorderSide(color: primaryColor),
         borderRadius: BorderRadius.circular(8),
       )
+  ),
+  textTheme: const TextTheme(
+    bodyText1: TextStyle(
+
+    ),
   ),
 );

@@ -21,7 +21,7 @@ class RemoteMovieDataSourceImpl implements RemoteMovieDataSource {
           }
       );
       if(response.statusCode == 200){
-        return  List<MovieModel>.from((response.data['results'] as List).map((e) =>
+        return List<MovieModel>.from((response.data['results'] as List).map((e) =>
             MovieModel.fromJson(e)
         ));
       }else{

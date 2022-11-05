@@ -10,3 +10,6 @@ const darkSecondaryColor = Color(0xffED22BF);
 
 const whiteColor = Color(0xffffffff);
 const accentColor = Color(0xffF0E7C5);
+
+const backgroundColor = Color(0xff171717);
+const bottomNavColor = Color(0xff111111);
