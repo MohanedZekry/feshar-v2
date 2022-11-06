@@ -13,15 +13,16 @@ class NowPlayingComponent2 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
+    //var size = MediaQuery.of(context).size;
     return BlocBuilder<MoviesBloc, MoviesState>(
       buildWhen: ((previous, current) => previous.nowPlayingState != current.nowPlayingState),
       builder: (context, state) {
         return Stack(
           children: [
             SizedBox(
-              height: size.height - 80,
+              //height: size.height - 80,
               child: Column(
+                mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Stack(
@@ -66,6 +67,7 @@ class NowPlayingComponent2 extends StatelessWidget {
                                       height: 500.0,
                                       imageUrl: Constants.imageURL(item.backgroundPath),
                                       fit: BoxFit.cover,
+
                                     ),
                                   ),
                                 ),
@@ -98,20 +100,7 @@ class NowPlayingComponent2 extends StatelessWidget {
                           }).toList(),
                         ),
                       ),
-                      /*Container(
-                        height: 500,
-                        decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                              colors:[
-                                Colors.black.withOpacity(0.85),
-                                Colors.black.withOpacity(0),
-                              ],
-                              end: Alignment.topCenter,
-                              begin: Alignment.bottomCenter
-                          ),
-                        ),
-                      ),*/
-                    ],
+                   ],
                   ),
                   const SizedBox(
                     height: 10,
@@ -170,6 +159,7 @@ class NowPlayingComponent2 extends StatelessWidget {
                         ),
                       ),
                       Column(
+                        mainAxisSize: MainAxisSize.min,
                         children: const [
                           Icon(
                             Icons.info_outline,
@@ -189,12 +179,13 @@ class NowPlayingComponent2 extends StatelessWidget {
                     ],
                   ),
                   const SizedBox(
-                    height: 40,
+                    height: 20,
                   ),
                 ],
               ),
             ),
             Column(
+              mainAxisSize: MainAxisSize.min,
               children: [
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,

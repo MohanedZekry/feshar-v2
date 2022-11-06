@@ -5,9 +5,12 @@ abstract class RemoteMovieDataSource {
 
   Future<List<MovieModel>> getNowPlayingMovies();
 
-  Future<List<MovieModel>> getPopularMoves();
+  Future<List<MovieModel>> getPopularMovies();
 
-  Future<List<MovieModel>> getTopRatedMoves();
+  Future<List<MovieModel>> getTopRatedMovies();
+
+  Future<List<MovieModel>> getTrendingMovies();
 
   Future<MovieDetailsModel> getMovieDetails(int movieId);
+
 }

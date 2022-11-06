@@ -5,6 +5,7 @@ import 'package:movieapp/features/movies/domain/repository/movies_repository.dar
 import 'package:movieapp/features/movies/domain/use_cases/get_now_playing_movies_usecase.dart';
 import 'package:movieapp/features/movies/domain/use_cases/get_popular_movies_usecase.dart';
 import 'package:movieapp/features/movies/domain/use_cases/get_top_rated_movies_usecase.dart';
+import 'package:movieapp/features/movies/domain/use_cases/get_trending_movies_use_case.dart';
 import 'package:movieapp/features/movies/presentation/controllers/movies_bloc.dart';
 import '../../features/movies/data/data_source/remote/remote_movie_data_source.dart';
 
@@ -27,9 +28,12 @@ class ServiceLocator {
             () => GetTopRatedMoviesUseCase(moviesRepository: sl()));
     sl.registerLazySingleton(
             () => GetPopularMoviesUseCase(moviesRepository: sl()));
-
+    sl.registerLazySingleton(() =>
+        GetTrendingMoviesUseCase(moviesRepository: sl()));
     /// BloC
     sl.registerFactory(
-            () => MoviesBloc(getNowPlayingMoviesUseCase: sl(), getPopularMoviesUseCase: sl(), getTopRatedMoviesUseCase: sl()));
+            () => MoviesBloc(getNowPlayingMoviesUseCase: sl(), getPopularMoviesUseCase: sl(),
+                getTopRatedMoviesUseCase: sl(), getTrendingMoviesUseCase: sl()
+            ));
   }
 }

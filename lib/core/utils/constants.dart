@@ -10,5 +10,7 @@ class Constants{
   static const MOVIE_POPULAR_EP = 'movie/popular';
   static const MOVIE_TOP_RATED_EP = 'movie/top_rated';
   static const MOVIE_DETAILS_EP = 'movie';
+  static const MOVIE_TRENDING_EP = 'trending/all/day';
+
 
 }

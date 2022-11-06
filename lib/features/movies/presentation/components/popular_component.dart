@@ -27,7 +27,7 @@ class PopularComponent extends StatelessWidget {
             return FadeIn(
               duration: const Duration(milliseconds: 500),
               child: SizedBox(
-                height: 170.0,
+                height: 150.0,
                 child: ListView.builder(
                   shrinkWrap: true,
                   scrollDirection: Axis.horizontal,
@@ -40,29 +40,21 @@ class PopularComponent extends StatelessWidget {
                       child: InkWell(
                         onTap: () {
                         },
-                        child: ClipRRect(
-                          borderRadius:
-                          const BorderRadius.all(Radius.circular(8.0)),
-                          child: CachedNetworkImage(
-                            width: 120.0,
-                            fit: BoxFit.cover,
-                            imageUrl: Constants.imageURL(movie.backgroundPath),
-                            placeholder: (context, url) =>
-                                Shimmer.fromColors(
-                                  baseColor: Colors.grey[850]!,
-                                  highlightColor: Colors.grey[800]!,
-                                  child: Container(
-                                    height: 170.0,
-                                    width: 120.0,
-                                    decoration: BoxDecoration(
-                                      color: Colors.black,
-                                      borderRadius: BorderRadius.circular(8.0),
-                                    ),
-                                  ),
+                        child: CachedNetworkImage(
+                          width: 120.0,
+                          fit: BoxFit.fill,
+                          imageUrl: Constants.imageURL(movie.poster),
+                          placeholder: (context, url) =>
+                              Shimmer.fromColors(
+                                baseColor: Colors.grey[850]!,
+                                highlightColor: Colors.grey[800]!,
+                                child: const SizedBox(
+                                  height: 150.0,
+                                  width: 120.0,
                                 ),
-                            errorWidget: (context, url, error) =>
-                            const Icon(Icons.error),
-                          ),
+                              ),
+                          errorWidget: (context, url, error) =>
+                          const Icon(Icons.error),
                         ),
                       ),
                     );

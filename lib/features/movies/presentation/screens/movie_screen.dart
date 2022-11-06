@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:movieapp/core/services/services_locator.dart';
 import 'package:movieapp/core/style/colors.dart';
 import 'package:movieapp/features/movies/presentation/components/now_playing_componenet_v2.dart';
 import 'package:movieapp/features/movies/presentation/controllers/movies_bloc.dart';
 import 'package:movieapp/features/movies/presentation/controllers/movies_event.dart';
+import '../components/popular_component.dart';
+import '../components/top_rated_component.dart';
 
 class MovieScreen extends StatelessWidget {
   const MovieScreen({Key? key}) : super(key: key);
@@ -13,7 +16,8 @@ class MovieScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => sl<MoviesBloc>()..add(GetNowPlayingMovieEvent())
-        ..add(GetPopularMovieEvent())..add(GetTopRatedMovieEvent()),
+        ..add(GetPopularMovieEvent())..add(GetTopRatedMovieEvent())
+        ..add(GetTrendingMovieEvent()),
       child: SafeArea(
         child: Scaffold(
           backgroundColor: backgroundColor,
@@ -47,18 +51,17 @@ class MovieScreen extends StatelessWidget {
             key: const Key('movieScrollView'),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
-                NowPlayingComponent2(),
-                /*const NowPlayingComponent(),
+              children:  [
+                const NowPlayingComponent2(),
                 Container(
-                  margin: const EdgeInsets.fromLTRB(16.0, 24.0, 16.0, 8.0),
+                  margin: const EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 8.0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        "Popular",
+                        "Popular on Feshar",
                         style: GoogleFonts.poppins(
-                          fontSize: 19,
+                          fontSize: 16,
                           color: Colors.white,
                           fontWeight: FontWeight.w500,
                           letterSpacing: 0.15,
@@ -91,7 +94,7 @@ class MovieScreen extends StatelessWidget {
                 Container(
                   margin: const EdgeInsets.fromLTRB(
                     16.0,
-                    24.0,
+                    16.0,
                     16.0,
                     8.0,
                   ),
@@ -101,7 +104,7 @@ class MovieScreen extends StatelessWidget {
                       Text(
                         "Top Rated",
                         style: GoogleFonts.poppins(
-                          fontSize: 19,
+                          fontSize: 16,
                           fontWeight: FontWeight.w500,
                           color: Colors.white,
                           letterSpacing: 0.15,
@@ -130,9 +133,9 @@ class MovieScreen extends StatelessWidget {
                       ),
                     ],
                   ),
-                ),c
+                ),
                 const TopRatedComponent(),
-                const SizedBox(height: 50.0),*/
+                const SizedBox(height: 20.0),
               ],
             ),
           ),

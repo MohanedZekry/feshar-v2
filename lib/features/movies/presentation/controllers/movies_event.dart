@@ -12,3 +12,5 @@ class GetNowPlayingMovieEvent extends MoviesEvent {}
 class GetPopularMovieEvent extends MoviesEvent {}
 
 class GetTopRatedMovieEvent extends MoviesEvent {}
+
+class GetTrendingMovieEvent extends MoviesEvent {}

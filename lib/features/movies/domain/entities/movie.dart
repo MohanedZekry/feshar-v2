@@ -9,6 +9,7 @@ class Movie extends Equatable {
   final String overview;
   final double voteAverage;
   final String releaseDate;
+  final String poster;
 
   const Movie({
     required this.id,
@@ -17,8 +18,8 @@ class Movie extends Equatable {
     required this.genreIds,
     required this.overview,
     required this.voteAverage,
-    required this.releaseDate
-
+    required this.releaseDate,
+    required this.poster
   });
 
   @override
@@ -29,6 +30,7 @@ class Movie extends Equatable {
     genreIds,
     overview,
     voteAverage,
-    releaseDate
+    releaseDate,
+    poster
   ];
 }

@@ -35,7 +35,7 @@ class RemoteMovieDataSourceImpl implements RemoteMovieDataSource {
   }
 
   @override
-  Future<List<MovieModel>> getPopularMoves() async{
+  Future<List<MovieModel>> getPopularMovies() async{
     try {
       final response = await DioHelper
           .getData(url: Constants.MOVIE_POPULAR_EP,
@@ -61,7 +61,7 @@ class RemoteMovieDataSourceImpl implements RemoteMovieDataSource {
   }
 
   @override
-  Future<List<MovieModel>> getTopRatedMoves() async {
+  Future<List<MovieModel>> getTopRatedMovies() async {
     try {
       final response = await DioHelper
           .getData(url: Constants.MOVIE_TOP_RATED_EP,
@@ -87,6 +87,32 @@ class RemoteMovieDataSourceImpl implements RemoteMovieDataSource {
   }
 
   @override
+  Future<List<MovieModel>> getTrendingMovies() async{
+    try{
+      final response = await DioHelper
+          .getData(url: Constants.MOVIE_TRENDING_EP,
+          query: {
+            'api_key': dotenv.env['API_KEY'],
+            'language': 'en-US'
+          }
+      );
+      if (response.statusCode == 200) {
+        return List<MovieModel>.from(
+            (response.data['results'] as List).map((e) =>
+                MovieModel.fromJson(e)
+            ));
+      } else {
+        throw ServerException(
+            errorMessageModel: ErrorMessageModel.fromJson(response.data));
+      }
+    }catch(e) {
+      throw  ServerException(errorMessageModel:
+      ErrorMessageModel(success: false, status: 401, statusMessage: e.toString()));
+    }
+  }
+
+
+  @override
   Future<MovieDetailsModel> getMovieDetails(int movieID) async{
     try {
       final response = await DioHelper
@@ -103,8 +129,9 @@ class RemoteMovieDataSourceImpl implements RemoteMovieDataSource {
             errorMessageModel: ErrorMessageModel.fromJson(response.data));
       }
     }catch(e) {
-      throw  ServerException(errorMessageModel:
+      throw ServerException(errorMessageModel:
       ErrorMessageModel(success: false, status: 401, statusMessage: e.toString()));
-    }}
+    }
+  }
 
 }

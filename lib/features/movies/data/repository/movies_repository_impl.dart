@@ -25,7 +25,7 @@ class MoviesRepositoryImpl implements MoviesRepository {
   @override
   Future<Either<Failure ,List<Movie>>>  getPopularMovies() async{
     try{
-      final result = await remoteMovieDataSource.getPopularMoves();
+      final result = await remoteMovieDataSource.getPopularMovies();
       return Right(result);
     } on ServerException catch(failure) {
       return left(ServerFailure(message: failure.errorMessageModel.statusMessage));
@@ -33,9 +33,20 @@ class MoviesRepositoryImpl implements MoviesRepository {
   }
 
   @override
+  Future<Either<Failure, List<Movie>>> getTrendingMovies() async {
+    try{
+      final result = await remoteMovieDataSource.getTrendingMovies();
+      return Right(result);
+    }  on ServerException catch(failure) {
+
+      return left(ServerFailure(message: failure.errorMessageModel.statusMessage));
+    }
+  }
+
+  @override
   Future<Either<Failure ,List<Movie>>>  getTopRatedMovies() async{
     try{
-      final result = await remoteMovieDataSource.getPopularMoves();
+      final result = await remoteMovieDataSource.getTopRatedMovies();
       return Right(result);
     } on ServerException catch(failure) {
       return left(ServerFailure(message: failure.errorMessageModel.statusMessage));
@@ -46,5 +57,7 @@ class MoviesRepositoryImpl implements MoviesRepository {
   Future<Either<Failure, MovieDetails>> getMovieDetails(int movieId) {
     throw UnimplementedError();
   }
+
+
 
 }

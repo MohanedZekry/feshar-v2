@@ -7,12 +7,19 @@ class MoviesState extends Equatable {
   final List<Movie> nowPlayingMovies;
   final RequestState nowPlayingState;
   final String nowPlayingMessage;
+
   final List<Movie> popularMovies;
   final RequestState popularState;
   final String popularMessage;
+
   final List<Movie> topRatedMovies;
   final RequestState topRatedState;
   final String topRatedMessage;
+
+  final List<Movie> trendingMovies;
+  final RequestState trendingState;
+  final String trendingMessage;
+
 
   const MoviesState({
     this.nowPlayingMovies = const [],
@@ -23,8 +30,10 @@ class MoviesState extends Equatable {
     this.popularMessage = '',
     this.topRatedMovies = const [],
     this.topRatedState = RequestState.loading,
-    this.topRatedMessage = ''
-
+    this.topRatedMessage = '',
+    this.trendingMovies = const [],
+    this.trendingState = RequestState.loading,
+    this.trendingMessage = '',
   });
 
   @override
@@ -37,8 +46,13 @@ class MoviesState extends Equatable {
     popularMessage,
     topRatedMovies,
     topRatedState,
-    topRatedMessage
+    topRatedMessage,
+    trendingMovies,
+    trendingState,
+    trendingMessage
+
   ];
+
   MoviesState copyWith({
     List<Movie>? nowPlayingMovies,
     RequestState? nowPlayingState,
@@ -49,6 +63,9 @@ class MoviesState extends Equatable {
     List<Movie>? topRatedMovies,
     RequestState? topRatedState,
     String? topRatedMessage,
+    List<Movie>? trendingMovies,
+    RequestState? trendingState,
+    String? trendingMessage,
   }){
     return MoviesState(
         nowPlayingMovies: nowPlayingMovies ?? this.nowPlayingMovies,
@@ -59,7 +76,10 @@ class MoviesState extends Equatable {
         popularState: popularState ?? this.popularState,
         topRatedMovies: topRatedMovies ?? this.topRatedMovies,
         topRatedMessage: topRatedMessage ?? this.topRatedMessage,
-        topRatedState: topRatedState ?? this.topRatedState
+        topRatedState: topRatedState ?? this.topRatedState,
+        trendingMovies: trendingMovies ?? this.trendingMovies,
+        trendingMessage: trendingMessage ?? this.trendingMessage,
+        trendingState: trendingState ?? this.trendingState,
     );
   }
 }
