@@ -21,6 +21,9 @@ dependencies:
   carousel_slider: ^4.1.1
   google_fonts: ^3.0.1
   shimmer: ^2.0.0
+  flutter_spinkit: ^5.1.0
+  # Lottie Animation
+  lottie: ^1.4.3
 
 
   #----------------------#
@@ -33,10 +36,11 @@ dependencies:
   dartz: ^0.10.1
   # State Management package
   flutter_bloc: ^8.1.1
-  # Singleton
+  # Singleton & DI
   get_it: ^7.2.0
-  # environment variables
+  # Environment variables
   flutter_dotenv: ^5.0.2
+
 
 dev_dependencies:
   flutter_test:

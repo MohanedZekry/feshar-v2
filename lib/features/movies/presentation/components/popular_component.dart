@@ -2,9 +2,11 @@ import 'package:animate_do/animate_do.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:movieapp/features/movies/presentation/controllers/movies_bloc.dart';
 import 'package:movieapp/features/movies/presentation/controllers/movies_state.dart';
 import 'package:shimmer/shimmer.dart';
+import '../../../../core/style/colors.dart';
 import '../../../../core/utils/constants.dart';
 import '../../../../core/utils/enums_state.dart';
 
@@ -20,8 +22,13 @@ class PopularComponent extends StatelessWidget {
         switch(state.popularState){
           case RequestState.loading:
             return const SizedBox(
-                height: 170,
-                child:  Center(child: CircularProgressIndicator())
+              height: 150,
+              child: Center(
+                child: SpinKitFadingCircle(
+                  size: 30,
+                  color: primaryColor,
+                ),
+              ),
             );
           case RequestState.loaded:
             return FadeIn(
