@@ -37,6 +37,7 @@ All the data has been fetched from "(TMDB)".
 - Equatable 
 - Flutter_Bloc 
 - Formz
+- Service Locator
 - Dio 
 - http
 - Dartz 
