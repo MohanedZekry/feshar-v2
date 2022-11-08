@@ -119,7 +119,6 @@ class RemoteMovieDataSourceImpl implements RemoteMovieDataSource {
           .getData(url: '${Constants.MOVIE_DETAILS_EP}/$movieID',
           query: {
             'api_key': dotenv.env['API_KEY'],
-            'language': 'en-US'
           }
       );
       if (response.statusCode == 200) {

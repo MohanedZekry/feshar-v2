@@ -54,8 +54,13 @@ class MoviesRepositoryImpl implements MoviesRepository {
   }
 
   @override
-  Future<Either<Failure, MovieDetails>> getMovieDetails(int movieId) {
-    throw UnimplementedError();
+  Future<Either<Failure, MovieDetails>> getMovieDetails(int movieId) async {
+    try {
+      final result =  await remoteMovieDataSource.getMovieDetails(movieId);
+      return Right(result);
+    } on ServerException catch(failure){
+      return left(ServerFailure(message: failure.errorMessageModel.statusMessage));
+    }
   }
 
 
