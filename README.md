@@ -6,7 +6,7 @@
 # Feshar V2 <i> (Flutter Version) </i>
 Mobile application which shows Popular, Now Playing, Top Rated and Upcoming Movies, TvShows and all the details Reviews, Trailer,
 Same goes with the TVShows showing Airing Today, OnAir, Popular, and Top Rated shows. Worked on making clean and beautifull UI and UX by using latest Material Designs.
-All the data has been fetched from "(TMDB)".
+All the data has been fetched from "(TMDB)" - Using a well-defined and decoupled architecture, following TDD (test-driven programming) as a working methodology, Clean Architecture.
 
 
 ## Clean Architecture
