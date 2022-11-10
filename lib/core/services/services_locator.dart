@@ -5,8 +5,10 @@ import 'package:movieapp/features/movies/domain/repository/movies_repository.dar
 import 'package:movieapp/features/movies/domain/use_cases/get_movie_details_use_case.dart';
 import 'package:movieapp/features/movies/domain/use_cases/get_now_playing_movies_usecase.dart';
 import 'package:movieapp/features/movies/domain/use_cases/get_popular_movies_usecase.dart';
+import 'package:movieapp/features/movies/domain/use_cases/get_recommendation_movies_use_case.dart';
 import 'package:movieapp/features/movies/domain/use_cases/get_top_rated_movies_usecase.dart';
 import 'package:movieapp/features/movies/domain/use_cases/get_trending_movies_use_case.dart';
+import 'package:movieapp/features/movies/presentation/controllers/movie_details_bloc.dart';
 import 'package:movieapp/features/movies/presentation/controllers/movies_bloc.dart';
 import '../../features/movies/data/data_source/remote/remote_movie_data_source.dart';
 
@@ -14,15 +16,16 @@ final sl = GetIt.instance;
 
 class ServiceLocator {
   void init() {
-    /// Date Source
+
+    /// Date Source///
     sl.registerLazySingleton<RemoteMovieDataSource>(
             () => RemoteMovieDataSourceImpl());
 
-    /// Repository
+    /// Repository ///
     sl.registerLazySingleton<MoviesRepository>(
             () => MoviesRepositoryImpl(remoteMovieDataSource: sl()));
 
-    /// UseCases
+    /// UseCases ///
     sl.registerLazySingleton(
             () => GetNowPlayingMoviesUseCase(moviesRepository: sl()));
     sl.registerLazySingleton(
@@ -33,10 +36,15 @@ class ServiceLocator {
         GetTrendingMoviesUseCase(moviesRepository: sl()));
     sl.registerLazySingleton(() =>
         GetMovieDetailsUseCase(moviesRepository: sl()));
-    /// BloC
+    sl.registerLazySingleton(() =>
+        GetRecommendationMoviesUseCase(moviesRepository: sl()));
+
+    /// BloC ///
     sl.registerFactory(
             () => MoviesBloc(getNowPlayingMoviesUseCase: sl(), getPopularMoviesUseCase: sl(),
             getTopRatedMoviesUseCase: sl(), getTrendingMoviesUseCase: sl()
         ));
+    sl.registerFactory(() => MovieDetailsBloc(getMovieDetailsUseCase: sl(),
+        getRecommendationMovieUseCase: sl()));
   }
 }

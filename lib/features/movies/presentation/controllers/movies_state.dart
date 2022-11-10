@@ -16,9 +16,9 @@ class MoviesState extends Equatable {
   final RequestState topRatedState;
   final String topRatedMessage;
 
-  final List<Movie> trendingMovies;
-  final RequestState trendingState;
-  final String trendingMessage;
+  final List<Movie> upcomingMovies;
+  final RequestState upcomingState;
+  final String upcomingMessage;
 
 
   const MoviesState({
@@ -31,9 +31,9 @@ class MoviesState extends Equatable {
     this.topRatedMovies = const [],
     this.topRatedState = RequestState.loading,
     this.topRatedMessage = '',
-    this.trendingMovies = const [],
-    this.trendingState = RequestState.loading,
-    this.trendingMessage = '',
+    this.upcomingMovies = const [],
+    this.upcomingState = RequestState.loading,
+    this.upcomingMessage = '',
   });
 
   @override
@@ -47,9 +47,9 @@ class MoviesState extends Equatable {
     topRatedMovies,
     topRatedState,
     topRatedMessage,
-    trendingMovies,
-    trendingState,
-    trendingMessage
+    upcomingMovies,
+    upcomingState,
+    upcomingMessage
 
   ];
 
@@ -63,9 +63,9 @@ class MoviesState extends Equatable {
     List<Movie>? topRatedMovies,
     RequestState? topRatedState,
     String? topRatedMessage,
-    List<Movie>? trendingMovies,
-    RequestState? trendingState,
-    String? trendingMessage,
+    List<Movie>? upcomingMovies,
+    RequestState? upcomingState,
+    String? upcomingMessage,
   }){
     return MoviesState(
         nowPlayingMovies: nowPlayingMovies ?? this.nowPlayingMovies,
@@ -77,9 +77,9 @@ class MoviesState extends Equatable {
         topRatedMovies: topRatedMovies ?? this.topRatedMovies,
         topRatedMessage: topRatedMessage ?? this.topRatedMessage,
         topRatedState: topRatedState ?? this.topRatedState,
-        trendingMovies: trendingMovies ?? this.trendingMovies,
-        trendingMessage: trendingMessage ?? this.trendingMessage,
-        trendingState: trendingState ?? this.trendingState,
+        upcomingMovies: upcomingMovies ?? this.upcomingMovies,
+        upcomingMessage: upcomingMessage ?? this.upcomingMessage,
+        upcomingState: upcomingState ?? this.upcomingState,
     );
   }
 }

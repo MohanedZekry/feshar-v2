@@ -6,6 +6,7 @@ import 'package:movieapp/features/movies/data/data_source/remote/remote_movie_da
 import 'package:movieapp/features/movies/data/models/movie_details_model.dart';
 import 'package:movieapp/features/movies/data/models/movie_model.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:movieapp/features/movies/data/models/recommendation_model.dart';
 
 class RemoteMovieDataSourceImpl implements RemoteMovieDataSource {
 
@@ -90,7 +91,7 @@ class RemoteMovieDataSourceImpl implements RemoteMovieDataSource {
   Future<List<MovieModel>> getTrendingMovies() async{
     try{
       final response = await DioHelper
-          .getData(url: Constants.MOVIE_TRENDING_EP,
+          .getData(url: Constants.MOVIE_UPCOMING_EP,
           query: {
             'api_key': dotenv.env['API_KEY'],
             'language': 'en-US'
@@ -102,6 +103,31 @@ class RemoteMovieDataSourceImpl implements RemoteMovieDataSource {
                 MovieModel.fromJson(e)
             ));
       } else {
+        throw ServerException(
+            errorMessageModel: ErrorMessageModel.fromJson(response.data));
+      }
+    }catch(e) {
+      throw  ServerException(errorMessageModel:
+      ErrorMessageModel(success: false, status: 401, statusMessage: e.toString()));
+    }
+  }
+
+  @override
+  Future<List<RecommendationModel>> getRecommendationMovies(int movieId) async {
+    try{
+      final response = await DioHelper
+          .getData(url: Constants.MOVIE_RECOMMENDATION_EP(movieId),
+          query: {
+            'api_key': dotenv.env['API_KEY'],
+            'language': 'en-US',
+          }
+      );
+      if(response.statusCode == 200){
+        return List<RecommendationModel>.from(
+            (response.data['results'] as List).map((e) =>
+                RecommendationModel.fromJson(e)
+            ));
+      }else{
         throw ServerException(
             errorMessageModel: ErrorMessageModel.fromJson(response.data));
       }
@@ -132,5 +158,6 @@ class RemoteMovieDataSourceImpl implements RemoteMovieDataSource {
       ErrorMessageModel(success: false, status: 401, statusMessage: e.toString()));
     }
   }
+
 
 }

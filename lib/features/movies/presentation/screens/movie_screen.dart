@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:movieapp/core/services/services_locator.dart';
 import 'package:movieapp/core/style/colors.dart';
 import 'package:movieapp/features/movies/presentation/components/now_playing_componenet_v2.dart';
+import 'package:movieapp/features/movies/presentation/components/upcoming_component.dart';
 import 'package:movieapp/features/movies/presentation/controllers/movies_bloc.dart';
 import 'package:movieapp/features/movies/presentation/controllers/movies_event.dart';
 import '../components/popular_component.dart';
@@ -59,6 +60,44 @@ class MovieScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
+                        "Previews",
+                        style: GoogleFonts.poppins(
+                          fontSize: 16,
+                          color: Colors.white,
+                          fontWeight: FontWeight.w500,
+                          letterSpacing: 0.15,
+                        ),
+                      ),
+                      InkWell(
+                        onTap: () {
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Row(
+                            children: [
+                              Text('See More',
+                                style: GoogleFonts.poppins(
+                                  color: Colors.white,),
+                              ),
+                              const Icon(
+                                Icons.arrow_forward_ios,
+                                size: 16.0,
+                                color: Colors.white,
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                const UpcomingComponent(),
+                Container(
+                  margin: const EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 8.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
                         "Popular on Feshar",
                         style: GoogleFonts.poppins(
                           fontSize: 16,
@@ -94,7 +133,7 @@ class MovieScreen extends StatelessWidget {
                 Container(
                   margin: const EdgeInsets.fromLTRB(
                     16.0,
-                    16.0,
+                    0.0,
                     16.0,
                     8.0,
                   ),

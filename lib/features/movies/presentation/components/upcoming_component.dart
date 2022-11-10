@@ -1,26 +1,26 @@
-import 'package:flutter/material.dart';
 import 'package:animate_do/animate_do.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:movieapp/features/movies/presentation/controllers/movies_bloc.dart';
+import 'package:movieapp/features/movies/presentation/controllers/movies_state.dart';
 import 'package:shimmer/shimmer.dart';
 import '../../../../core/style/colors.dart';
 import '../../../../core/utils/constants.dart';
 import '../../../../core/utils/enums_state.dart';
-import '../controllers/movies_bloc.dart';
-import '../controllers/movies_state.dart';
 import '../screens/movie_details_screen.dart';
 
-class TopRatedComponent extends StatelessWidget {
-  const TopRatedComponent({Key? key}) : super(key: key);
+class UpcomingComponent extends StatelessWidget {
+  const UpcomingComponent({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<MoviesBloc, MoviesState>(
       buildWhen: ((previous, current) =>
-        previous.topRatedState != current.topRatedState),
+        previous.upcomingState != current.upcomingState),
       builder: (context, state) {
-        switch(state.topRatedState){
+        switch(state.upcomingState){
           case RequestState.loading:
             return const SizedBox(
               height: 150,
@@ -40,9 +40,9 @@ class TopRatedComponent extends StatelessWidget {
                   shrinkWrap: true,
                   scrollDirection: Axis.horizontal,
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                  itemCount: state.topRatedMovies.length,
+                  itemCount: state.upcomingMovies.length,
                   itemBuilder: (context, index) {
-                    final movie = state.topRatedMovies[index];
+                    final movie = state.upcomingMovies[index];
                     return Container(
                       padding: const EdgeInsets.only(right: 8.0),
                       child: InkWell(
@@ -53,21 +53,27 @@ class TopRatedComponent extends StatelessWidget {
                                 builder: (context) => MovieDetailScreen(id: movie.id)),
                           );
                         },
-                        child: CachedNetworkImage(
-                          width: 120.0,
-                          fit: BoxFit.fill,
-                          imageUrl: Constants.imageURL(movie.poster),
-                          placeholder: (context, url) =>
-                              Shimmer.fromColors(
-                                baseColor: Colors.grey[850]!,
-                                highlightColor: Colors.grey[800]!,
-                                child: const SizedBox(
-                                  height: 170.0,
-                                  width: 120.0,
-                                ),
-                              ),
-                          errorWidget: (context, url, error) =>
-                          const Icon(Icons.error),
+                        child: CircleAvatar(
+                          radius: 65,
+                          child: ClipOval(
+                            child: CachedNetworkImage(
+                              width: 130.0,
+                              height: 130.0,
+                              fit: BoxFit.cover,
+                              imageUrl: Constants.imageURL(movie.poster),
+                              placeholder: (context, url) =>
+                                  Shimmer.fromColors(
+                                    baseColor: Colors.grey[850]!,
+                                    highlightColor: Colors.grey[800]!,
+                                    child: const SizedBox(
+                                      height: 130.0,
+                                      width: 130.0,
+                                    ),
+                                  ),
+                              errorWidget: (context, url, error) =>
+                              const Icon(Icons.error),
+                            ),
+                          ),
                         ),
                       ),
                     );

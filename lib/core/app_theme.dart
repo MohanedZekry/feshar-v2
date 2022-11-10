@@ -3,7 +3,7 @@ import 'style/colors.dart';
 
 final appTheme = ThemeData(
   appBarTheme: const AppBarTheme(
-    backgroundColor: primaryColor,
+    backgroundColor: Colors.transparent,
     centerTitle: true,
   ),
   brightness: Brightness.light,
@@ -11,6 +11,7 @@ final appTheme = ThemeData(
   colorScheme: const ColorScheme.light(
       primary: primaryColor
   ),
+  scaffoldBackgroundColor: backgroundColor,
   bottomNavigationBarTheme: const BottomNavigationBarThemeData(
     elevation: 0,
     backgroundColor: bottomNavColor,

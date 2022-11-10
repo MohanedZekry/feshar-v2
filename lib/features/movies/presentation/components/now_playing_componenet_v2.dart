@@ -8,6 +8,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 import 'package:movieapp/core/style/colors.dart';
 import 'package:movieapp/features/movies/presentation/controllers/movies_state.dart';
+import 'package:movieapp/features/movies/presentation/screens/movie_details_screen.dart';
 import '../../../../core/utils/constants.dart';
 import '../../../../core/utils/enums_state.dart';
 import '../controllers/movies_bloc.dart';
@@ -60,6 +61,11 @@ class NowPlayingComponent2 extends StatelessWidget {
                                     GestureDetector(
                                       key: const Key('openMovieMinimalDetail'),
                                       onTap: () {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) => MovieDetailScreen(id: item.id)),
+                                        );
                                       },
                                       child: ShaderMask(
                                         shaderCallback: (rect) {
