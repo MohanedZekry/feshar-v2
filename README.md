@@ -3,6 +3,14 @@
 [![Feshar](https://img.shields.io/badge/Feshar-TvShows-green)](https://github.com/MohanedZekry/Feshar)
 >
 
+<p align="center">
+  <img alt='Screenshot 1' src="screenshots/1.png" width="40%"/>
+  <img alt='Screenshot 2' src="screenshots/2.png" width="37.7%"/>
+  <br/>
+  <img alt='Screenshot 1' src="screenshots/3.png" width="40%"/>
+  <img alt='Screenshot 2' src="screenshots/4.png" width="37.7%"/>
+</p>
+
 # Feshar V2 <i> (Flutter Version) </i>
 Mobile application which shows Popular, Now Playing, Top Rated and Upcoming Movies, TvShows and all the details Reviews, Trailer,
 Same goes with the TVShows showing Airing Today, OnAir, Popular, and Top Rated shows. Worked on making clean and beautifull UI and UX by using latest Material Designs.
