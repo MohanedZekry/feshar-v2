@@ -27,7 +27,6 @@ class MoviesBloc extends Bloc<MoviesEvent, MoviesState> {
 
   }
 
-
   FutureOr<void> _getNowPlayingMovies(GetNowPlayingMovieEvent event
       , Emitter<MoviesState> emit) async {
     final result =
